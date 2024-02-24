@@ -1,16 +1,18 @@
 package org.tfoc;
 
+import java.util.Objects;
+
 /**
  * Definition for singly-linked list.
  */
 public class ListNode {
 
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
     ListNode() {}
 
-    ListNode(int val) {
+    public ListNode(int val) {
 
         this.val = val;
     }
@@ -19,6 +21,13 @@ public class ListNode {
 
         this.val = val;
         this.next = next;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof ListNode listNode)) return false;
+        return val == listNode.val && Objects.equals(next, listNode.next);
     }
 
 }
